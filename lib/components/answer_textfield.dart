@@ -12,8 +12,24 @@ class AnswerTextField extends ConsumerStatefulWidget {
 }
 
 class _AnswerTextFieldState extends ConsumerState<AnswerTextField> {
+  final _controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Container();
+    //回答文字列プロバイダーを監視して、外部から回答文字列が表示されたら
+    //テキストフィールドの文字列にも反映するhanneisuru
+    return TextField(
+      controller: _controller,
+      decoration: const InputDecoration(
+        border: OutlineInputBorder(),
+        labelText: '答え',
+      ),
+      keyboardType: TextInputType.number,
+      style: Theme.of(context).textTheme.headline5,
+      autofocus: true,
+      //回答文字列プロバイダーを都度更新する
+      onChanged: null,
+      //キーボードの完了ボタン押下で回答を設定する
+      onSubmitted: null,
+    );
   }
 }
