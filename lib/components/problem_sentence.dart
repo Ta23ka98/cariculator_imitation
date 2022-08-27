@@ -1,3 +1,4 @@
+import 'package:cariculator_imitation/components/problem_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -7,8 +8,14 @@ class ProblemSentence extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return const Center(
-      child: Text("ProblemSentence"),
+    //問題状態の問題文を取り出して表示する
+    final sentence =
+        ref.watch(problemStateProvider.select((state) => state.sentence));
+    return Center(
+      child: Text(
+        sentence,
+        style: Theme.of(context).textTheme.headline2,
+      ),
     );
   }
 }
