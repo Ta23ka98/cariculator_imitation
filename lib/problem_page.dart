@@ -1,3 +1,5 @@
+import 'package:cariculator_imitation/components/problem_state.dart';
+import 'package:cariculator_imitation/components/result_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'components/problem_sentence.dart';
@@ -9,6 +11,13 @@ class ProblemPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    ref.listen<ProblemState>(problemStateProvider, (previous, next) {
+      if (next.status != ProblemStatus.questioning) {
+        showDialog(
+            context: context,
+            builder: (_) => ResultDialog(status: next.status));
+      }
+    });
     return Scaffold(
       appBar: AppBar(
         title: const Text('算数問題'),
