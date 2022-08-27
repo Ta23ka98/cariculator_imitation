@@ -4,6 +4,11 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'problem_state.freezed.dart';
 
+//問題状態プロバイダー
+final problemStateProvider =
+    StateNotifierProvider.autoDispose<ProblemStateNotifier, ProblemState>(
+        (ref) => ProblemStateNotifier());
+
 //問題状態
 @freezed
 class ProblemState with _$ProblemState {
