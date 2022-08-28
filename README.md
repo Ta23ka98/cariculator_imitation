@@ -1,6 +1,6 @@
 # cariculator_imitation
 
-A new Flutter project.
+A Flutter project imitated other repository.
 
 ## Getting Started
 
